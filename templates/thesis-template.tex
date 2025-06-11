@@ -1,0 +1,472 @@
+% Türkçe Tez Şablonu - Yazım Kurallarına Uygun
+% Turkish Thesis Template - Compliant with Writing Rules
+
+\documentclass[12pt,a4paper,oneside]{report}
+
+% Minimal paketler - sadece gerekli olanlar
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=4cm, right=2.5cm, top=3cm, bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+
+% ===============================
+% TEZ BİLGİLERİ
+% ===============================
+\newcommand{\thesistitle}{ {{thesisTitle}} }
+\newcommand{\authorname}{ {{authorName}} }
+\newcommand{\advisorname}{ {{advisorName}} }
+\newcommand{\university}{ {{university}} }
+\newcommand{\faculty}{ {{faculty}} }
+\newcommand{\department}{ {{department}} }
+\newcommand{\submissiondate}{ {{submissionDate}} }
+
+% ===============================
+% SAYFA NUMARALAMA VE FORMATLAR
+% ===============================
+\pagestyle{plain}
+
+% Ana metin için 1.5 satır aralığı
+\onehalfspacing
+
+% Başlık formatları - standart LaTeX ile
+\makeatletter
+% Bölüm başlıkları için ortalama ve 5cm üstten başlama
+\renewcommand{\@makechapterhead}[1]{%
+  \vspace*{2cm}% 3cm üst kenar + 2cm = 5cm
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \large\bfseries \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip 20\p@
+    \fi
+    \interlinepenalty\@M
+    \large \bfseries #1\par\nobreak
+    \vskip 20\p@
+  }}
+
+\renewcommand{\@makeschapterhead}[1]{%
+  \vspace*{2cm}%
+  {\parindent \z@ \centering
+    \normalfont
+    \interlinepenalty\@M
+    \large \bfseries #1\par\nobreak
+    \vskip 20\p@
+  }}
+
+% Section formatları
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+  {-3.5ex \@plus -1ex \@minus -.2ex}%
+  {2.3ex \@plus.2ex}%
+  {\normalfont\normalsize\bfseries}}
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
+
+% Tablo ve şekil numaralandırma (Bölüm.Sıra)
+\renewcommand{\thetable}{\thechapter.\arabic{table}}
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+
+% İçindekiler başlıkları - manuel
+\renewcommand{\contentsname}{İÇİNDEKİLER}
+\renewcommand{\listfigurename}{ŞEKİLLER DİZİNİ}
+\renewcommand{\listtablename}{TABLOLAR DİZİNİ}
+\renewcommand{\bibname}{KAYNAKLAR}
+\renewcommand{\appendixname}{EK}
+\renewcommand{\chaptername}{}
+
+% ===============================
+% BELGE BAŞLANGICI
+% ===============================
+\begin{document}
+
+% ===============================
+% DIŞ KAPAK
+% ===============================
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{14}{21}\selectfont\bfseries \university \par}
+\vspace{0.5cm}
+{\fontsize{14}{21}\selectfont\bfseries \faculty \par}
+\vspace{0.5cm}
+{\fontsize{14}{21}\selectfont\bfseries \department \par}
+
+\vspace{3cm}
+
+{\fontsize{16}{24}\selectfont\bfseries \thesistitle \par}
+
+\vspace{3cm}
+
+{\fontsize{14}{21}\selectfont LİSANS TEZİ \par}
+
+\vspace{2cm}
+
+{\fontsize{14}{21}\selectfont \authorname \par}
+
+\vspace{2cm}
+
+{\fontsize{12}{18}\selectfont Danışman: \advisorname \par}
+
+\vfill
+
+{\fontsize{12}{18}\selectfont \submissiondate \par}
+
+\end{titlepage}
+
+% ===============================
+% İÇ KAPAK
+% ===============================
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{14}{21}\selectfont\bfseries \university \par}
+\vspace{0.5cm}
+{\fontsize{14}{21}\selectfont\bfseries \faculty \par}
+\vspace{0.5cm}
+{\fontsize{14}{21}\selectfont\bfseries \department \par}
+
+\vspace{3cm}
+
+{\fontsize{16}{24}\selectfont\bfseries \thesistitle \par}
+
+\vspace{3cm}
+
+{\fontsize{14}{21}\selectfont LİSANS TEZİ \par}
+
+\vspace{2cm}
+
+{\fontsize{14}{21}\selectfont \authorname \par}
+
+\vspace{2cm}
+
+{\fontsize{12}{18}\selectfont Danışman: \advisorname \par}
+
+\vfill
+
+{\fontsize{12}{18}\selectfont \submissiondate \par}
+
+\end{titlepage}
+
+% ===============================
+% BAŞLANGIÇ KISMI - ROMEN RAKAMLARI
+% ===============================
+\pagenumbering{roman}
+
+% ===============================
+% ÖNSÖZ
+% ===============================
+\chapter*{ÖNSÖZ}
+\addcontentsline{toc}{chapter}{ÖNSÖZ}
+
+\singlespacing % Önsöz için tek satır aralığı
+
+Bu tez çalışmasında {{thesisTitle}} konusu ele alınmıştır. Çalışma boyunca modern teknolojilerin analizi ve uygulanması hedeflenmiştir.
+
+Tez çalışmam boyunca bana yol gösteren değerli danışmanım {{advisorName}}'a, desteklerini hiç esirgemeyen aileme ve arkadaşlarıma teşekkürlerimi sunarım.
+
+\vspace{2cm}
+\hfill {{authorName}} \\
+\hfill {{submissionDate}}
+
+\onehalfspacing % Ana metne dönüş için 1.5 aralık
+
+\clearpage
+
+% ===============================
+% İÇİNDEKİLER
+% ===============================
+\tableofcontents
+\clearpage
+
+% ===============================
+% ŞEKİLLER DİZİNİ
+% ===============================
+\listoffigures
+\clearpage
+
+% ===============================
+% TABLOLAR DİZİNİ
+% ===============================
+\listoftables
+\clearpage
+
+% ===============================
+% SİMGELER VE KISALTMALAR
+% ===============================
+\chapter*{SİMGELER}
+\addcontentsline{toc}{chapter}{SİMGELER}
+
+\singlespacing % Simgeler için tek satır aralığı
+
+\section*{Simgeler}
+\begin{tabular}{@{}ll@{}}
+$A$ & Alan, m² \\
+$T$ & Sıcaklık, K \\
+$v$ & Hız, m/s \\
+$\rho$ & Yoğunluk, kg/m³ \\
+$\alpha$ & Doğruluk oranı \\
+$\beta$ & Güven aralığı \\
+\end{tabular}
+
+\section*{Kısaltmalar}
+\begin{tabular}{@{}ll@{}}
+A.I. & Artificial Intelligence \\
+M.L. & Machine Learning \\
+S.V.M. & Support Vector Machine \\
+R.F. & Random Forest \\
+N.N. & Neural Network \\
+\end{tabular}
+
+\onehalfspacing
+\clearpage
+
+% ===============================
+% TÜRKÇE ÖZET
+% ===============================
+\chapter*{ {{thesisTitle}} }
+\addcontentsline{toc}{chapter}{ÖZET}
+
+\singlespacing % Özet için tek satır aralığı
+
+\section*{ÖZET}
+
+{{abstractTr}}
+
+\textbf{Anahtar Kelimeler:} {{keywordsTr}}
+
+\onehalfspacing
+\clearpage
+
+% ===============================
+% İNGİLİZCE ÖZET
+% ===============================
+\chapter*{ {{thesisTitleEn}} }
+\addcontentsline{toc}{chapter}{ABSTRACT}
+
+\singlespacing % Abstract için tek satır aralığı
+
+\section*{ABSTRACT}
+
+{{abstractEn}}
+
+\textbf{Keywords:} {{keywordsEn}}
+
+\onehalfspacing
+\clearpage
+
+% ===============================
+% ANA METİN - ARAP RAKAMLARI
+% ===============================
+\pagenumbering{arabic}
+
+{{#chapters}}
+\chapter{ {{title}} }
+
+{{#sections}}
+\section{ {{title}} }
+
+{{content}}
+
+{{/sections}}
+
+{{#isChapter3}}
+% Malzeme ve Yöntem bölümü için tablo örneği
+
+\begin{table}[h!]
+\centering
+\caption{Veri seti özellikleri}
+\label{tab:dataset}
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Özellik} & \textbf{Değer} \\
+\hline
+Toplam Örnek Sayısı & 10,000 \\
+Özellik Sayısı & 50 \\
+Eğitim Seti (\%) & 70 \\
+Test Seti (\%) & 20 \\
+Doğrulama Seti (\%) & 10 \\
+\hline
+\end{tabular}
+\end{table}
+
+Tablo \ref{tab:dataset}'de veri seti özellikleri detaylandırılmıştır.
+
+\begin{figure}[h!]
+\centering
+\rule{10cm}{6cm} % Şekil yerine geçici kutu
+\caption{Hibrit model mimarisi}
+\label{fig:model_architecture}
+\end{figure}
+
+Şekil \ref{fig:model_architecture}'de önerilen hibrit modelin genel mimarisi gösterilmektedir.
+{{/isChapter3}}
+
+{{#isChapter4}}
+% Bulgular bölümü için tablo ve şekil örnekleri
+
+\begin{table}[h!]
+\centering
+\caption{Algoritma performans karşılaştırması}
+\label{tab:performance}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Algoritma} & \textbf{Doğruluk (\%)} & \textbf{Kesinlik (\%)} & \textbf{Duyarlılık (\%)} \\
+\hline
+Random Forest & 78.5 & 76.2 & 80.1 \\
+SVM & 82.3 & 81.7 & 83.0 \\
+Neural Network & 85.1 & 84.3 & 85.9 \\
+Hibrit Model & \textbf{87.2} & \textbf{86.8} & \textbf{87.6} \\
+\hline
+\end{tabular}
+\end{table}
+
+Tablo \ref{tab:performance}'de görüldüğü gibi, önerilen hibrit model en yüksek performansı göstermiştir.
+
+\begin{figure}[h!]
+\centering
+\rule{10cm}{6cm} % Şekil yerine geçici kutu
+\caption{Algoritmaların ROC eğrisi karşılaştırması}
+\label{fig:roc_curve}
+\end{figure}
+
+Şekil \ref{fig:roc_curve}'de farklı algoritmaların ROC eğrileri karşılaştırılmıştır.
+
+\begin{table}[h!]
+\centering
+\caption{Karışıklık matrisi - Hibrit Model}
+\label{tab:confusion_matrix}
+\begin{tabular}{|c|c|c|}
+\hline
+ & \textbf{Pozitif Tahmin} & \textbf{Negatif Tahmin} \\
+\hline
+\textbf{Pozitif Gerçek} & 1,562 & 218 \\
+\textbf{Negatif Gerçek} & 156 & 1,064 \\
+\hline
+\end{tabular}
+\end{table}
+
+Denklem (\ref{eq:accuracy}) ile doğruluk oranı hesaplanmıştır:
+
+\begin{equation}
+Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+\label{eq:accuracy}
+\end{equation}
+
+burada TP (True Positive), TN (True Negative), FP (False Positive) ve FN (False Negative) değerlerini temsil eder.
+{{/isChapter4}}
+
+{{/chapters}}
+
+% ===============================
+% KAYNAKLAR
+% ===============================
+\chapter*{KAYNAKLAR}
+\addcontentsline{toc}{chapter}{KAYNAKLAR}
+
+\singlespacing % Kaynaklar için tek satır aralığı
+
+1. Wechsatol, W., Lorente, S., Bejan, A., ``Tree-shaped insulated design for uniform distribution of hot water over an area'', \textit{Int. J. Heat Mass Transfer}, 44, 3111-3123, (2001).
+
+2. Özkan, M., Yılmaz, S., ``Hibrit Yaklaşımların Performans Analizi'', \textit{Bilgisayar Bilimleri Dergisi}, 12(2), 67-89, (2022).
+
+3. Chen, L., Wang, X., ``Deep Learning Applications in Data Processing'', \textit{IEEE Transactions on Neural Networks}, 34(7), 234-251, (2023).
+
+4. Anderson, R., Thompson, P., ``Comparative Study of Classification Algorithms'', \textit{Machine Learning Review}, 28(4), 445-467, (2022).
+
+5. Garcia, M., Rodriguez, C., ``Feature Selection Methods in AI Systems'', \textit{Artificial Intelligence Quarterly}, 15(1), 78-92, (2023).
+
+6. Kumar, S., Patel, N., ``Performance Evaluation Metrics for ML Models'', \textit{Data Science Journal}, 8(3), 156-174, (2022).
+
+7. Williams, D., Lee, H., ``Ensemble Methods in Machine Learning'', \textit{Computer Science Today}, 19(6), 301-318, (2023).
+
+8. Taylor, B., Wilson, M., ``Statistical Analysis of AI Performance'', \textit{Statistics and Computing}, 41(2), 89-108, (2022).
+
+\onehalfspacing
+
+% ===============================
+% EKLER
+% ===============================
+\appendix
+\renewcommand{\thechapter}{\Alph{chapter}}
+\renewcommand{\thetable}{\Alph{chapter}.\arabic{table}}
+\renewcommand{\thefigure}{\Alph{chapter}.\arabic{figure}}
+
+\chapter{DENEYSEL SONUÇLAR}
+
+\singlespacing % Ekler için tek satır aralığı
+
+Bu ekte, tez çalışmasında kullanılan detaylı deneysel sonuçlar ve istatistiksel analizler yer almaktadır.
+
+\section{Detaylı Performans Metrikleri}
+
+\begin{table}[h!]
+\centering
+\caption{Algoritmaların detaylı performans sonuçları}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Algoritma} & \textbf{F1-Score} & \textbf{AUC} & \textbf{Kappa} & \textbf{MCC} \\
+\hline
+Random Forest & 0.782 & 0.856 & 0.741 & 0.746 \\
+SVM & 0.824 & 0.889 & 0.798 & 0.801 \\
+Neural Network & 0.853 & 0.921 & 0.832 & 0.835 \\
+Hibrit Model & \textbf{0.872} & \textbf{0.945} & \textbf{0.861} & \textbf{0.864} \\
+\hline
+\end{tabular}
+\end{table}
+
+\onehalfspacing
+
+% ===============================
+% ÖZGEÇMİŞ
+% ===============================
+\chapter*{ÖZGEÇMİŞ}
+\addcontentsline{toc}{chapter}{ÖZGEÇMİŞ}
+
+\singlespacing % Özgeçmiş için tek satır aralığı
+
+\textbf{Kişisel Bilgiler:}
+
+\begin{tabular}{@{}ll@{}}
+Ad Soyad: & {{authorName}} \\
+Doğum Yeri ve Tarihi: & {{personalInfo.birthPlace}}, {{personalInfo.birthDate}} \\
+E-posta: & {{personalInfo.email}} \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{Eğitim:}
+
+\begin{tabular}{@{}ll@{}}
+{{#personalInfo.education}}
+{{year}} & {{level}}, {{department}}, {{school}} \\
+{{/personalInfo.education}}
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{İş Deneyimi:}
+
+\begin{tabular}{@{}ll@{}}
+{{#personalInfo.experience}}
+{{year}} & {{position}}, {{company}} \\
+{{/personalInfo.experience}}
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{Yabancı Dil:}
+
+İngilizce (İyi), Almanca (Orta)
+
+\textbf{Yayınlar:}
+
+1. {{authorName}}, {{advisorName}}, "{{thesisTitle}}: Bir Uygulama", \textit{Ulusal Bilgisayar Bilimleri Kongresi}, İstanbul, 2024.
+
+\end{document}

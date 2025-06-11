@@ -1,0 +1,27 @@
+{
+  "name": "turkish-thesis-generator",
+  "version": "1.0.0",
+  "description": "Turkish LaTeX thesis template generator with dummy data",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "web": "node serve.js",
+"web-dev": "nodemon serve.js",
+    "init": "node src/generator.js",
+    "build": "npm run init && pdflatex -output-directory=output thesis.tex",
+    "clean": "rm -rf output/* && rm -f *.aux *.log *.toc *.lof *.lot",
+    "dev": "npm run init && npm run build"
+  },
+  "dependencies": {
+    "inquirer": "^9.2.12",
+    "mustache": "^4.2.0",
+    "fs-extra": "^11.1.1",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": ["latex", "thesis", "turkish", "template", "generator"],
+  "author": "Your Name",
+  "license": "MIT"
+}

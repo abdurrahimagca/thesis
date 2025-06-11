@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Turkish Thesis Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-graduation-cap"></i> Turkish Thesis Generator</h1>
+                <p>Profesyonel LaTeX tez şablonu oluşturucu</p>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="basic">
+                <i class="fas fa-info-circle"></i> Temel Bilgiler
+            </button>
+            <button class="tab-btn" data-tab="content">
+                <i class="fas fa-edit"></i> İçerik
+            </button>
+            <button class="tab-btn" data-tab="preview">
+                <i class="fas fa-eye"></i> Önizleme
+            </button>
+        </nav>
+
+        <!-- Tab Contents -->
+        <main class="main-content">
+            <!-- Basic Info Tab -->
+            <div class="tab-content active" id="basic">
+                <div class="form-section">
+                    <h2><i class="fas fa-user"></i> Temel Bilgiler</h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="thesisTitle">Tez Başlığı</label>
+                            <input type="text" id="thesisTitle" class="form-input" 
+                                   placeholder="Örn: Yapay Zeka Tabanlı Bilgi İşleme Sistemleri">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="thesisTitleEn">İngilizce Tez Başlığı</label>
+                            <input type="text" id="thesisTitleEn" class="form-input" 
+                                   placeholder="AI-Based Information Processing Systems">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="authorName">Yazar Adı</label>
+                            <input type="text" id="authorName" class="form-input" 
+                                   placeholder="AHMET YILMAZ">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="advisorName">Danışman Adı</label>
+                            <input type="text" id="advisorName" class="form-input" 
+                                   placeholder="Prof. Dr. MEHMET ÖZKAN">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="university">Üniversite</label>
+                            <input type="text" id="university" class="form-input" 
+                                   placeholder="ANKARA TEKNİK ÜNİVERSİTESİ">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="faculty">Fakülte</label>
+                            <input type="text" id="faculty" class="form-input" 
+                                   placeholder="MÜHENDİSLİK FAKÜLTESİ">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="department">Bölüm</label>
+                            <input type="text" id="department" class="form-input" 
+                                   placeholder="BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="submissionDate">Teslim Tarihi</label>
+                            <input type="text" id="submissionDate" class="form-input" 
+                                   placeholder="Haziran 2025">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Tab -->
+            <div class="tab-content" id="content">
+                <div class="form-section">
+                    <h2><i class="fas fa-file-text"></i> Özet ve Anahtar Kelimeler</h2>
+                    
+                    <div class="form-group">
+                        <label for="abstractTr">Türkçe Özet (max 250 kelime)</label>
+                        <textarea id="abstractTr" class="form-textarea" rows="6" 
+                                  placeholder="Bu çalışmada..."></textarea>
+                        <span class="char-count" id="abstractTrCount">0/250 kelime</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="abstractEn">İngilizce Özet (max 250 kelime)</label>
+                        <textarea id="abstractEn" class="form-textarea" rows="6" 
+                                  placeholder="In this study..."></textarea>
+                        <span class="char-count" id="abstractEnCount">0/250 kelime</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="keywordsTr">Türkçe Anahtar Kelimeler</label>
+                        <input type="text" id="keywordsTr" class="form-input" 
+                               placeholder="yapay zeka, bilgi işleme, makine öğrenmesi">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="keywordsEn">İngilizce Anahtar Kelimeler</label>
+                        <input type="text" id="keywordsEn" class="form-input" 
+                               placeholder="artificial intelligence, information processing, machine learning">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-magic"></i> Hazır Şablonlar</h2>
+                    <p class="section-desc">Hızlı başlangıç için hazır şablonlardan birini seçin</p>
+                    
+                    <div class="template-buttons">
+                        <button class="btn btn-secondary" onclick="loadTemplate('ai')">
+                            <i class="fas fa-robot"></i> Yapay Zeka
+                        </button>
+                        <button class="btn btn-secondary" onclick="loadTemplate('engineering')">
+                            <i class="fas fa-cogs"></i> Mühendislik
+                        </button>
+                        <button class="btn btn-secondary" onclick="loadTemplate('business')">
+                            <i class="fas fa-chart-line"></i> İşletme
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-user-circle"></i> Kişisel Bilgiler</h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="birthPlace">Doğum Yeri</label>
+                            <input type="text" id="birthPlace" class="form-input" placeholder="Ankara">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birthDate">Doğum Tarihi</label>
+                            <input type="text" id="birthDate" class="form-input" placeholder="15.03.1998">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" class="form-input" placeholder="ahmet.yilmaz@email.com">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapters Tab - REMOVED -->
+
+            <!-- Preview Tab -->
+            <div class="tab-content" id="preview">
+                <div class="form-section">
+                    <h2><i class="fas fa-eye"></i> LaTeX Önizleme</h2>
+                    <p class="section-desc">Oluşturulacak LaTeX kodunun önizlemesi</p>
+                    
+                    <div class="preview-actions">
+                        <button class="btn btn-primary" onclick="generatePreview()">
+                            <i class="fas fa-sync"></i> Önizleme Güncelle
+                        </button>
+                        <button class="btn btn-success" onclick="downloadLatex()">
+                            <i class="fas fa-download"></i> LaTeX İndir
+                        </button>
+                        <button class="btn btn-info" onclick="copyToClipboard()">
+                            <i class="fas fa-copy"></i> Kopyala
+                        </button>
+                    </div>
+
+                    <div class="preview-container">
+                        <pre><code id="latexPreview" class="latex-code">
+% Önizleme için "Önizleme Güncelle" butonuna tıklayın
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Action Buttons -->
+        <div class="action-bar">
+            <button class="btn btn-secondary" onclick="loadDummyData()">
+                <i class="fas fa-magic"></i> Örnek Veri Yükle
+            </button>
+            <button class="btn btn-warning" onclick="resetForm()">
+                <i class="fas fa-undo"></i> Sıfırla
+            </button>
+            <button class="btn btn-success" onclick="generateThesis()">
+                <i class="fas fa-file-pdf"></i> Tez Oluştur
+            </button>
+        </div>
+
+        <!-- Progress Modal -->
+        <div class="modal" id="progressModal">
+            <div class="modal-content">
+                <h3><i class="fas fa-cog fa-spin"></i> Tez Oluşturuluyor...</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">Hazırlanıyor...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
